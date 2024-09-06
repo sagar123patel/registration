@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/signup.css">
+</head>
+<body>
+    
+    <form th:action="@{/signup}" th:object="${user}" method="post" enctype="multipart/form-data">
+    <h1>Sign Up</h1>
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}" required/>
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div><br/>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" th:field="*{email}" required/>
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div><br/>
+
+        <label for="mobileNo">Mobile No:</label>
+        <input type="text" id="mobileNo" th:field="*{mobileNo}" required/>
+        <div th:if="${#fields.hasErrors('mobileNo')}" th:errors="*{mobileNo}"></div><br/>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" th:field="*{password}" required/>
+        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div><br/>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" th:field="*{confirmPassword}" required/>
+        <div th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></div><br/>
+
+        <label for="document">Upload Document:</label>
+        <input type="file" id="document" th:field="*{document}" required/>
+        <div th:if="${#fields.hasErrors('document')}" th:errors="*{document}"></div><br/>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
